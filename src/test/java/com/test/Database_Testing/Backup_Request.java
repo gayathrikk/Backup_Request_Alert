@@ -17,24 +17,23 @@
 	        String password = "Health#123";
 	
 	        // SQL query to check today's backup status
-	        String query = "SELECT * FROM storage_backup WHERE status = 1 AND DATE(assign_date) = CURDATE()";
-	
+	        String query = "SELECT COUNT(*) FROM storage_backup WHERE status IN (1, 2, 3)";
 	        try {
 	            Class.forName("com.mysql.cj.jdbc.Driver");
 	            System.out.println("MySQL JDBC Driver Registered");
 	
 	            try (Connection conn = DriverManager.getConnection(url, username, password);
-	                 PreparedStatement stmt = conn.prepareStatement(query);
-	                 ResultSet rs = stmt.executeQuery()) {
-	
-	                if (rs.next()) {
-	                    System.out.println("✅ Backup completed for today. No email alert sent.");
-	                } else {
-	                    System.out.println("❌ No backup found for today. Sending email alert...");
-	                    sendEmailAlert();
-	                }
-	
-	            }
+	            	     PreparedStatement stmt = conn.prepareStatement(query);
+	            	     ResultSet rs = stmt.executeQuery()) {
+
+	            	    if (rs.next() && rs.getInt(1) > 0) {
+	            	        System.out.println("✅ Backup Request record found with status 1, 2 or 3. No email alert sent.");
+	            	    } else {
+	            	        System.out.println("❌ No backup Request records with status 1, 2 or 3. Sending email alert...");
+	            	        sendEmailAlert();
+	            	    }
+
+	            	}
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }
@@ -43,9 +42,9 @@
 	    private void sendEmailAlert() {
 	        String from = "automationsoftware25@gmail.com";
 	        String password = "wjzcgaramsqvagxu"; // App Password
-	        //String[] to = {"gayuriche26@gmail.com"};
-	        String[] to = {"sindhu.r@htic.iitm.ac.in"};
-	        String[] cc = {"richavermaj@gmail.com","supriti@htic.iitm.ac.in", "azizahammed.a@htic.iitm.ac.in", "satheskumar@htic.iitm.ac.in"};
+	        String[] to = {"gayuriche26@gmail.com"};
+	        //String[] to = {"sindhu.r@htic.iitm.ac.in"};
+	        //String[] cc = {"richavermaj@gmail.com","supriti@htic.iitm.ac.in", "azizahammed.a@htic.iitm.ac.in", "satheskumar@htic.iitm.ac.in"};
 	        String subject = "⚠ Backup Request Alert";
 	        String date = LocalDate.now().toString();
 	
@@ -68,10 +67,10 @@
 	            for (String recipient : to) {
 	                message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
 	            }
-	            
-	            for (String ccRecipient : cc) {
-	                message.addRecipient(Message.RecipientType.CC, new InternetAddress(ccRecipient));
-	            }
+//	            
+//	            for (String ccRecipient : cc) {
+//	                message.addRecipient(Message.RecipientType.CC, new InternetAddress(ccRecipient));
+//	            }
 	
 	            message.setSubject(subject);
 	            String body = "<html><body>" +
