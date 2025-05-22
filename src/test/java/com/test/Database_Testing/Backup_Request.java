@@ -42,9 +42,9 @@
 	    private void sendEmailAlert() {
 	      final String from = "automationsoftware25@gmail.com";
               final String password = "wjzcgaramsqvagxu"; // App Password
-	        String[] to = {"gayuriche26@gmail.com"};
-	        //String[] to = {"sindhu.r@htic.iitm.ac.in"};
-	        //String[] cc = {"richavermaj@gmail.com","supriti@htic.iitm.ac.in", "azizahammed.a@htic.iitm.ac.in", "satheskumar@htic.iitm.ac.in"};
+	       
+	        String[] to = {"sindhu.r@htic.iitm.ac.in"};
+	        String[] cc = {"richavermaj@gmail.com","supriti@htic.iitm.ac.in", "azizahammed.a@htic.iitm.ac.in", "satheskumar@htic.iitm.ac.in", "karthik6595@gmail.com"};
 	        String subject = "⚠ Backup Request Alert";
 	        
 	
@@ -67,10 +67,10 @@
 	            for (String recipient : to) {
 	                message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
 	            }
-//	            
-//	            for (String ccRecipient : cc) {
-//	                message.addRecipient(Message.RecipientType.CC, new InternetAddress(ccRecipient));
-//	            }
+	            
+	            for (String ccRecipient : cc) {
+	                message.addRecipient(Message.RecipientType.CC, new InternetAddress(ccRecipient));
+	            }
 	
 	            message.setSubject(subject);
 	            String body = "<html><body>" +
