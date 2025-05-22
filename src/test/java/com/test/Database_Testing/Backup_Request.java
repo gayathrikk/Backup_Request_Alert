@@ -4,7 +4,7 @@
 	import javax.mail.*;
 	import javax.mail.internet.*;
 	import java.sql.*;
-	import java.time.LocalDate;
+	
 	import java.util.*;
 	
 	public class Backup_Request {
@@ -46,7 +46,7 @@
 	        //String[] to = {"sindhu.r@htic.iitm.ac.in"};
 	        //String[] cc = {"richavermaj@gmail.com","supriti@htic.iitm.ac.in", "azizahammed.a@htic.iitm.ac.in", "satheskumar@htic.iitm.ac.in"};
 	        String subject = "⚠ Backup Request Alert";
-	        String date = LocalDate.now().toString();
+	        
 	
 	        Properties props = new Properties();
 	        props.put("mail.smtp.host", "smtp.gmail.com");
