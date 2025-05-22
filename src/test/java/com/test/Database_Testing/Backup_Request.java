@@ -40,8 +40,8 @@
 	    }
 	
 	    private void sendEmailAlert() {
-	        String from = "automationsoftware25@gmail.com";
-	        String password = "wjzcgaramsqvagxu"; // App Password
+	      final String from = "automationsoftware25@gmail.com";
+              final String password = "wjzcgaramsqvagxu"; // App Password
 	        String[] to = {"gayuriche26@gmail.com"};
 	        //String[] to = {"sindhu.r@htic.iitm.ac.in"};
 	        //String[] cc = {"richavermaj@gmail.com","supriti@htic.iitm.ac.in", "azizahammed.a@htic.iitm.ac.in", "satheskumar@htic.iitm.ac.in"};
