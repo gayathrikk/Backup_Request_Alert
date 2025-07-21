@@ -26,11 +26,11 @@ public class Backup_Request {
                  PreparedStatement stmt = conn.prepareStatement(query);
                  ResultSet rs = stmt.executeQuery()) {
 
-                if (rs.next() && rs.getInt(1) > 0) {
-                    System.out.println("❌ Backup request record found with status = 1. Sending email alert...");
+                if (rs.next() && rs.getInt(1) == 0) {
+                    System.out.println("❌ No backup request record found with status = 1. Sending email alert...");
                     sendEmailAlert();
                 } else {
-                    System.out.println("✅ No backup request record with status = 1. No email alert sent.");
+                    System.out.println("✅ Backup request record found with status = 1. No email alert sent.");
                 }
 
             }
@@ -83,6 +83,7 @@ public class Backup_Request {
                     "<p><b>Hi Team,</b></p>" +
                     "<p><b>" +
                     "Our brain backup capacity is 100TB per week.<br>" +
+                    "Currently, there are no pending backup requests with status = 1.<br>" +
                     "Please utilize this by providing backup requests worth 100TB of brains.<br>" +
                     "We will await your update." +
                     "</b></p>" +
