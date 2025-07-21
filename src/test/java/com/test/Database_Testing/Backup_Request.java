@@ -80,14 +80,13 @@ public class Backup_Request {
             message.setSubject(subject);
 
             String body = "<html><body>" +
-                    "<p><b>Hi Team,</b></p>" +
-                    "<p><b>" +
+                    "<p>Hi Team,</p>" +
+                    "<p>" +
                     "Our brain backup capacity is 100TB per week.<br>" +
-                    "Currently, there are no pending backup requests with status = 1.<br>" +
                     "Please utilize this by providing backup requests worth 100TB of brains.<br>" +
                     "We will await your update." +
-                    "</b></p>" +
-                    "<p><b>Best regards,<br>Software Team</b></p>" +
+                    "</p>" +
+                    "<p>Best regards,<br>Software Team</p>" +
                     "<p style='color:gray;font-size:small;'>This is an automatically generated email. Please do not reply to this message.</p>" +
                     "</body></html>";
 
