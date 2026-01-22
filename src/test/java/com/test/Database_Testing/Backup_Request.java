@@ -47,7 +47,7 @@ public class Backup_Request {
         String[] cc = {
             "richavermaj@gmail.com",
             "supriti@htic.iitm.ac.in",
-            "azizahammed.a@htic.iitm.ac.in",
+            "ramanan@htic.iitm.ac.in",
             "satheskumar@htic.iitm.ac.in",
             "karthik6595@gmail.com"
         };
@@ -100,3 +100,4 @@ public class Backup_Request {
         }
     }
 }
+
